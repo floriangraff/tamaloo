@@ -3,6 +3,11 @@
 
 :root {
   /*--bs-font-sans-serif: 'Times New Roman' !important;*/
+  --primary-color: #359da7;
+}
+
+a {
+  color: var(--primary-color) !important;
 }
 
 html {
