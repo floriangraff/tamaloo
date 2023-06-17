@@ -43,15 +43,14 @@ import TheWelcome from '../components/TheWelcome.vue'
     <h2> Spieler anzeigen</h2>
     Wenn ein Spieler nicht mitbekommt, dass er eine Karte hätte abwerfen können, so darf diese von einem anderen Spieler aufgedeckt werden und der Betreffende muss eine Strafkarte ziehen. (Es muss jedoch zuvor genug Zeit zum Abwerfen gelassen werden.)
     Sollte die “Anzeige” jedoch unrechtmäßig (falsch) sein, muss der Anzeigende zwei Strafkarten ziehen.
-    Spielende
-    Das Spiel kann auf zwei verschiedene Weisen enden:
-    Leere Hand
-    Wenn ein Spieler keine Karten mehr hat, gewinnt dieser und das Spiel ist sofort vorbei.
-    Der Gewinner bekommt +10 Punkte.
-    Alle anderen erhalten die Summe ihrer Kartenwerte als Minuspunkte.
-    <br/>
-    Sollte es ein Unentschieden geben, können auch mehrere Spieler gewinnen und somit +10 Punkte bekommen.
-    Tamaloo<br/>
+    <h2>Spielende</h2>
+    Das Spiel kann auf zwei verschiedene Weisen enden:<br/><br/>
+    <b>Leere Hand</b><br/>
+    Wenn ein Spieler keine Karten mehr hat, gewinnt dieser und das Spiel ist sofort vorbei.<br/>
+    Der Gewinner bekommt +10 Punkte.<br/>
+    Alle anderen erhalten die Summe ihrer Kartenwerte als Minuspunkte.<br/>
+    Sollte es ein Unentschieden geben, können auch mehrere Spieler gewinnen und somit +10 Punkte bekommen.<br/><br/>
+    <b>Tamaloo</b><br/>
     Statt seines Zuges kann ein Spieler “Tamaloo” sagen. Daraufhin ist das Blatt des betreffenden Spielers geschützt vor Spezialkarten und alle weiteren Spieler sind noch ein letztes mal an der Reihe. Dann endet das Spiel. Wenn der Spieler, der “Tamaloo” gesagt hat, die niedrigste Kartensumme auf der Hand hat gewinnt er und erhält somit +10 Punkte.
     Sollte ein anderer Spieler jedoch eine geringere oder gleiche Kartensumme haben, gewinnt dieser und der “Tamaloo”-rufende bekommt zusätzlich zu seinen Karten-Minuspunkten -10 Strafpunkte.
     Alle anderen erhalten die Summe ihrer Kartenwerte als Minuspunkte.
