@@ -9,7 +9,5 @@ import TheWelcome from '../components/TheWelcome.vue'
 </template>
 
 <style scoped>
-h1 {
-  color: var(--vt-c-white);
-}
+
 </style>
