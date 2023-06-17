@@ -1,5 +1,17 @@
 @import './base.css';
+@import url('https://fonts.googleapis.com/css?family=Cherry+Bomb+One');
 
-body {
-  background-color: var(--vt-c-black);
+:root {
+  /*--bs-font-sans-serif: 'Times New Roman' !important;*/
+}
+
+html {
+  /*background-color: var(--vt-c-black);*/
+  /*background: rgb(2,0,36);*/
+  /*background: linear-gradient0deg, rgba(2,0,36,0.8) 0%, rgba(255,255,255,1) 100%);*/
+  height: 100%;
+}
+
+h1 {
+  font-family: 'Cherry Bomb One', sans-serif !important;
 }

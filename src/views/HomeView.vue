@@ -3,11 +3,11 @@ import TheWelcome from '../components/TheWelcome.vue'
 </script>
 
 <template>
-  <main>
-    <h1>TAMALOO v1.0.1</h1>
+  <main class="bg-transparent">
+
+    <p> v1.0.1</p>
   </main>
 </template>
 
 <style scoped>
-
 </style>
