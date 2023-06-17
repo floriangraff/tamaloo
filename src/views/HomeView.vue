@@ -4,6 +4,12 @@ import TheWelcome from '../components/TheWelcome.vue'
 
 <template>
   <main>
-    <TheWelcome />
+    <h1>TAMALOO</h1>
   </main>
 </template>
+
+<style scoped>
+h1 {
+  color: var(--vt-c-white);
+}
+</style>
