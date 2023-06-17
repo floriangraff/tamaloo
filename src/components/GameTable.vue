@@ -9,69 +9,68 @@ import PlayerNamesComponent from "@/components/PlayerNamesComponent.vue";
 
 class Player {
   get totalScore(): number {
-    return this.roundScores.reduce((sum, current) => sum + current, 0);
+  return this.roundScores.reduce((sum, current) => sum + current, 0);
   }
-    id: number;
-    name: string;
-    private _totalScore: number;
-    roundScores: Array<number>;
+  id: number;
+  name: string;
+  private _totalScore: number;
+  roundScores: Array<number>;
 
-    public addRoundScore(score: number) {
-      this.roundScores.push(score);
-    }
-
-    constructor(id: number, name: string) {
-      this.id = id;
-      this.name = name;
-      this._totalScore = 0;
-      this.roundScores = [];
-    }
-
-    scoreOfRound(number: number) {
-      return this.roundScores[number];
-    }
-  }
-  class RoundScore {
-    score: number;
-
-    constructor(round: number, player: Player) {
-      this.score = player.scoreOfRound(round);
-    }
+  public addRoundScore(score: number) {
+    this.roundScores.push(score);
   }
 
-  class Round {
-    constructor(id: number, playerScores: Array<RoundScore>) {
-      this.id = id;
-      this.playerScores = playerScores;
-    }
-    id: number;
-    playerScores: Array<RoundScore>;
+  constructor(id: number, name: string) {
+    this.id = id;
+    this.name = name;
+    this._totalScore = 0;
+    this.roundScores = [];
   }
-  
 
-  let player1 = new Player(0, "Flo");
-  let player2 = new Player(0, "Rob");
-  player1.addRoundScore(100)
-  player2.addRoundScore(-20)
-  player1.addRoundScore(50)
-  player2.addRoundScore(100)
-let players = [];
+  scoreOfRound(number: number) {
+    return this.roundScores[number];
+  }
+}
+class RoundScore {
+  score: number;
+
+  constructor(round: number, player: Player) {
+    this.score = player.scoreOfRound(round);
+  }
+}
+
+class Round {
+  constructor(id: number, playerScores: Array<RoundScore>) {
+    this.id = id;
+    this.playerScores = playerScores;
+  }
+  id: number;
+  playerScores: Array<RoundScore>;
+}
+
+let player1 = new Player(0, "Flo");
+let player2 = new Player(0, "Rob");
+player1.addRoundScore(100)
+player2.addRoundScore(-20)
+player1.addRoundScore(50)
+player2.addRoundScore(100)
+let players: Array<Player> = [];
 players.push(player1, player2);
 
 let rounds = [
-    new Round(1,
-        [
-            new RoundScore(0, player1),
-            new RoundScore(0, player2)
-        ]
-    ),
-    new Round(2,
-        [
-            new RoundScore(1, player1),
-            new RoundScore(1, player2)
-        ]
-    ),
-  ]
+  new Round(1,
+      [
+          new RoundScore(0, player1),
+          new RoundScore(0, player2)
+      ]
+  ),
+  new Round(2,
+      [
+          new RoundScore(1, player1),
+          new RoundScore(1, player2)
+      ]
+  ),
+]
 </script>
 
 <style>
