@@ -2,6 +2,7 @@
   <AddPlayerComponent @add-player="addPlayer" />
   <PlayerNamesComponent v-model:players="players"/>
   <RoundComponent v-for="round in rounds" v-bind:key="round.id" :round="round"/>
+  <AddRoundComponent :players="players"/>
 </template>
 
 <script setup lang="ts">
@@ -10,47 +11,9 @@ import PlayerNamesComponent from "@/components/PlayerNamesComponent.vue";
 import AddPlayerComponent from "@/components/AddPlayerComponent.vue";
 import {ref} from "vue";
 import {type Ref} from "vue";
-
-class Player {
-  get totalScore(): number {
-  return this.roundScores.reduce((sum, current) => sum + current, 0);
-  }
-  id: number;
-  name: String;
-  private _totalScore: number;
-  roundScores: Array<number>;
-
-  public addRoundScore(score: number) {
-    this.roundScores.push(score);
-  }
-
-  constructor(id: number, name: String) {
-    this.id = id;
-    this.name = name;
-    this._totalScore = 0;
-    this.roundScores = [];
-  }
-
-  scoreOfRound(number: number) {
-    return this.roundScores[number];
-  }
-}
-class RoundScore {
-  score: number;
-
-  constructor(round: number, player: Player) {
-    this.score = player.scoreOfRound(round);
-  }
-}
-
-class Round {
-  constructor(id: number, playerScores: Array<RoundScore>) {
-    this.id = id;
-    this.playerScores = playerScores;
-  }
-  id: number;
-  playerScores: Array<RoundScore>;
-}
+import Player from "@/models/Player";
+import Round from "@/models/Round";
+import AddRoundComponent from "@/components/AddRoundComponent.vue";
 
 let players: Ref<Array<Player>> = ref([]);
 let rounds: Array<Round> = [];
