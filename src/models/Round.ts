@@ -1,12 +1,16 @@
 import RoundScore from "@/models/RoundScore";
 
 class Round {
-    constructor(id: number, playerScores: Array<RoundScore>) {
+    constructor(id: number, roundScores: Array<RoundScore>) {
         this.id = id;
-        this.playerScores = playerScores;
+        this.playerScores = roundScores;
     }
     id: number;
     playerScores: Array<RoundScore>;
+
+    addRoundScore(roundScore: RoundScore) {
+        this.playerScores.push(roundScore)
+    }
 }
 
 export default Round;

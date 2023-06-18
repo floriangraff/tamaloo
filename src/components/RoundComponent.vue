@@ -1,7 +1,7 @@
 <template>
   <div class="round">
     <div class="caption-block">
-      {{round.id}}
+      Round {{round.id}}
     </div>
     <ScoreBlockComponent  v-for="playerScore in round.playerScores" :player="playerScore"/>
   </div>
