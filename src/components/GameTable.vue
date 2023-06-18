@@ -3,7 +3,6 @@
   <PlayerNamesComponent v-model:players="players"/>
   <RoundComponent v-for="round in rounds" v-bind:key="round.id" :round="round"/>
   <AddRoundComponent :players="players" @add-round="addRound"/>
-  <div v-for="round in rounds">test round</div>
 </template>
 
 <script setup lang="ts">
@@ -15,30 +14,16 @@ import {type Ref} from "vue";
 import Player from "@/models/Player";
 import Round from "@/models/Round";
 import AddRoundComponent from "@/components/AddRoundComponent.vue";
-import RoundScore from "@/models/RoundScore";
 
 let players: Ref<Array<Player>> = ref([]);
 let rounds: Ref<Array<Round>> = ref([]);
-
-function getNewRound(players: Array<Player>) {
-  let round = new Round(0, []);
-  for (let player of players) {
-    round.addRoundScore(new RoundScore(0, player));
-  }
-  return round;
-}
-
-rounds.value.push(new Round(0, []))
-
 function addPlayer(name: String): any {
   let id = Math.floor(Math.random() * 100);
   players.value.push(new Player(id, name))
-  console.log(name)
 }
 
 function addRound(newRound: Round) {
   rounds.value.push(newRound);
-  console.log(newRound)
 }
 
 </script>

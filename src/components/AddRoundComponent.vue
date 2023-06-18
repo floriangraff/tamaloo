@@ -3,8 +3,11 @@
     <div class="caption-block">
       Add Round
     </div>
-    <div v-for="player in players" class="score-block">
-      <input v-model="player.score" class="score-input" v-on:keyup.enter="addRound">
+<!--    <div v-for="player in players" class="score-block">-->
+<!--      <input v-model="player.score" class="score-input" v-on:keyup.enter="addRound" type="number">-->
+<!--    </div>-->
+    <div v-for="roundScore in currentRound.playerScores" class="score-block">
+      <input v-model="roundScore.score" class="score-input" v-on:keyup.enter="addRound" type="number">
     </div>
   </div>
 </template>
@@ -13,11 +16,24 @@
 
 import Round from "@/models/Round";
 import RoundScore from "@/models/RoundScore";
+import {ref, type Ref} from "vue";
 
 const props = defineProps(["players"]);
 const emit = defineEmits<{
   (e: 'addRound', round: Round): void
 }>()
+
+function newRound() {
+  let roundId = Math.floor(Math.random() * 100);
+  const roundScores: Array<RoundScore> = [];
+  for (let player of props.players) {
+    roundScores.push(new RoundScore(roundId, player));
+  }
+  return ref(new Round(roundId, roundScores));
+}
+
+const currentRound: Ref<Round> = newRound();
+
 function addRound() {
   console.log("add round", props.players)
   let roundId = Math.floor(Math.random() * 100);
