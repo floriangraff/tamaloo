@@ -17,6 +17,7 @@
 import Round from "@/models/Round";
 import RoundScore from "@/models/RoundScore";
 import {ref, type Ref, watch} from "vue";
+import roundScore from "@/models/RoundScore";
 
 const props = defineProps(["players"]);
 const emit = defineEmits<{
@@ -39,20 +40,22 @@ function watchPlayersChange() {
 }
 
 watchPlayersChange();
-
 let roundScores: Ref<Array<RoundScore>> = ref(newRoundScores());
+let nextRoundId = 1;
 
 function addRound() {
-  console.log("add round", props.players)
-  let roundId = Math.floor(Math.random() * 100);
-  let roundScores: Array<RoundScore> = [];
-  for (let player of props.players) {
-    player.addRoundScore(10);
-    roundScores.push(new RoundScore(roundId, player));
-    console.log(player.name)
-  }
-  let newRound = new Round(roundId , roundScores)
-  emit("addRound", newRound)
+  // console.log("add round", props.players)
+  // let roundScores: Array<RoundScore> = [];
+  // for (let player of props.players) {
+  //   player.addRoundScore(10);
+  //   roundScores.push(new RoundScore(roundId, player));
+  //   console.log(player.name)
+  // }
+  let round = new Round(nextRoundId, roundScores.value);
+  console.log("add round: ", round)
+  emit("addRound", round)
+  nextRoundId += 1;
+  roundScores.value = newRoundScores();
 }
 </script>
 
