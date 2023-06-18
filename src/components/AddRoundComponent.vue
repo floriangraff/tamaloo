@@ -3,9 +3,6 @@
     <div class="caption-block">
       Add Round
     </div>
-<!--    <div v-for="player in players" class="score-block">-->
-<!--      <input v-model="player.score" class="score-input" v-on:keyup.enter="addRound" type="number">-->
-<!--    </div>-->
     <div v-for="roundScore in roundScores" class="score-block">
       <input v-model="roundScore.score" class="score-input" v-on:keyup.enter="addRound" type="number">
     </div>

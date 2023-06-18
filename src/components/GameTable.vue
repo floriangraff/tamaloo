@@ -17,9 +17,8 @@ import AddRoundComponent from "@/components/AddRoundComponent.vue";
 
 let players: Ref<Array<Player>> = ref([]);
 let rounds: Ref<Array<Round>> = ref([]);
-function addPlayer(name: String): any {
-  let id = Math.floor(Math.random() * 100);
-  players.value.push(new Player(id, name))
+function addPlayer(player: Player): any {
+  players.value.push(player);
 }
 
 function addRound(newRound: Round) {
