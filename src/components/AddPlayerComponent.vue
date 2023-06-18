@@ -1,5 +1,5 @@
 <template>
-  <b>Add Player {{test}}</b><br />
+  <b>Add Player</b><br />
   <input placeholder="Player Name" ref="input" v-model="playerName" v-on:keyup.enter="handleAddPlayer"/>
   <button class="btn btn-primary" v-on:click="handleAddPlayer">+</button>
 </template>
@@ -10,7 +10,7 @@ const emit = defineEmits<{
   (e: 'addPlayer', name: String): void
 }>()
 const playerName = ref("")
-const input = ref("input")
+const input = ref(null)
 function handleAddPlayer() {
   if (playerName.value === "") {
     return
