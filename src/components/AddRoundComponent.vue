@@ -1,6 +1,6 @@
 <template>
-  <div class="round">
-    <div class="caption-block"></div>
+  <div class="round" v-if="players.length > 0">
+    <div class="caption-block">Round {{nextRoundId}}</div>
     <div v-for="roundScore in roundScores" class="score-block">
       <input v-model="roundScore.score" class="score-input" placeholder="0" v-on:keyup.enter="addRound" type="number">
     </div>

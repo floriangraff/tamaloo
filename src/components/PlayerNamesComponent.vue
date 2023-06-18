@@ -1,8 +1,8 @@
 <template>
   <div class="player-names">
-    <div class="caption-block flex flex-horizontal-center"></div>
+    <div class="caption-block player-name-block flex flex-horizontal-center"></div>
     <div v-for="player in players" class="score-block flex-horizontal-center">
-      {{player.name}}<br/>{{player.totalScore}}
+      <p class="special-text">{{player.name}} ({{player.totalScore}})</p>
     </div>
   </div>
 

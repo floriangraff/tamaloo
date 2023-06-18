@@ -3,8 +3,10 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-<RouterLink to="/" class="me-2">Play</RouterLink>
-<RouterLink to="/rules" class="me-2">Rules</RouterLink>
+  <div class="flex flex-horizontal-center mt-4">
+    <RouterLink to="/" class="me-2">Play</RouterLink>
+    <RouterLink to="/rules" class="me-2">Rules</RouterLink>
+  </div>
   <div class="container mt-5 bg-transparent">
     <h1 class="text-center">TAMALOO</h1>
     <RouterView />

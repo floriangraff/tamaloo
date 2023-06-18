@@ -1,6 +1,5 @@
 <template>
-  <div class="flex flex-horizontal-center">
-<!--    <div class="caption-block flex flex-horizontal-center"></div>-->
+  <div class="flex flex-horizontal-center mb-5">
     <input placeholder="Name" ref="input" v-model="playerName" v-on:keyup.enter="handleAddPlayer"/>
     &nbsp;
     <button class="btn btn-primary border-0" v-on:click="handleAddPlayer">Add player</button>

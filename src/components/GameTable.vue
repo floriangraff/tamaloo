@@ -31,27 +31,26 @@ function addRound(newRound: Round) {
 
 <style>
 :root {
-  --game-board-score-block-width: 60px;
+  --game-board-score-block-width: 80px;
   --game-board-score-block-height: 60px;
 }
 
 .caption-block {
-  display: block;
-  overflow: hidden;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  text-align: right;
   width: 100px;
   height: var(--game-board-score-block-height);
-  font-size: 20px;
+  font-size: 14px;
   font-weight: bold;
-  vertical-align: center;
-  text-align: center;
 }
 .score-block {
   display: flex;
+  justify-items: center;
   align-items: center;
   height: var(--game-board-score-block-height);
   width: var(--game-board-score-block-width);
-  text-align: center;
-  background-color: #f2f2f2;
   margin: 1px 1px 1px 1px;
 }
 </style>

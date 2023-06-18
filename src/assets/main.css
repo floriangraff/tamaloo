@@ -29,3 +29,7 @@ h1,h2,h3 {
 .flex-horizontal-center {
   justify-content: center;
 }
+
+.special-text {
+  font-family: 'Cherry Bomb One', sans-serif !important;
+}
