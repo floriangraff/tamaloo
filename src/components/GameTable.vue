@@ -1,12 +1,16 @@
 <template>
-  <PlayerNamesComponent :players="players"/>
+  <AddPlayerComponent @add-player="addPlayer" />
+  <PlayerNamesComponent v-model:players="players"/>
   <RoundComponent v-for="round in rounds" v-bind:key="round.id" :round="round"/>
 </template>
 
 <script setup lang="ts">
 import RoundComponent from "@/components/RoundComponent.vue";
 import PlayerNamesComponent from "@/components/PlayerNamesComponent.vue";
+import AddPlayerComponent from "@/components/AddPlayerComponent.vue";
+import {ref} from "vue";
 
+const test = ref(["p1","p2"]);
 class Player {
   get totalScore(): number {
   return this.roundScores.reduce((sum, current) => sum + current, 0);
@@ -48,29 +52,16 @@ class Round {
   playerScores: Array<RoundScore>;
 }
 
-let player1 = new Player(0, "Flo");
-let player2 = new Player(0, "Rob");
-player1.addRoundScore(100)
-player2.addRoundScore(-20)
-player1.addRoundScore(50)
-player2.addRoundScore(100)
-let players: Array<Player> = [];
-players.push(player1, player2);
+let players: Array<Player> = ref([]);
+let rounds: Array<Round> = [];
+rounds.push(new Round(0, []))
 
-let rounds = [
-  new Round(1,
-      [
-          new RoundScore(0, player1),
-          new RoundScore(0, player2)
-      ]
-  ),
-  new Round(2,
-      [
-          new RoundScore(1, player1),
-          new RoundScore(1, player2)
-      ]
-  ),
-]
+function addPlayer(name: string) {
+  let id = Math.floor(Math.random() * 100);
+  players.value.push(new Player(id, name))
+  console.log(name)
+}
+
 </script>
 
 <style>
