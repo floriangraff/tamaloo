@@ -14,7 +14,6 @@ defineProps(['round'])
 
 <style scoped>
 .round {
-  border-bottom: 1px solid var(--primary-color);
   display: flex;
 }
 </style>

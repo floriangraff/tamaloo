@@ -1,6 +1,6 @@
 <template>
   <AddPlayerComponent @add-player="addPlayer" />
-  <PlayerNamesComponent v-model:players="players"/>
+  <PlayerNamesComponent ref="playerNamesComponent" v-model:players="players"/>
   <RoundComponent v-for="round in rounds" v-bind:key="round.id" :round="round"/>
   <AddRoundComponent :players="players" @add-round="addRound"/>
 </template>
@@ -17,12 +17,14 @@ import AddRoundComponent from "@/components/AddRoundComponent.vue";
 
 let players: Ref<Array<Player>> = ref([]);
 let rounds: Ref<Array<Round>> = ref([]);
+const playerNamesComponent = ref(null);
 function addPlayer(player: Player): any {
   players.value.push(player);
 }
 
 function addRound(newRound: Round) {
   rounds.value.push(newRound);
+  playerNamesComponent.value.updateScores(players.value);
 }
 
 </script>

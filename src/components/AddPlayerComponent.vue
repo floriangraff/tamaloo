@@ -1,7 +1,10 @@
 <template>
-  <b>Add Player</b><br />
-  <input placeholder="Player Name" ref="input" v-model="playerName" v-on:keyup.enter="handleAddPlayer"/>
-  <button class="btn btn-primary" v-on:click="handleAddPlayer">+</button>
+  <div class="flex flex-horizontal-center">
+<!--    <div class="caption-block flex flex-horizontal-center"></div>-->
+    <input placeholder="Name" ref="input" v-model="playerName" v-on:keyup.enter="handleAddPlayer"/>
+    &nbsp;
+    <button class="btn btn-primary border-0" v-on:click="handleAddPlayer">Add player</button>
+  </div>
 </template>
 
 <script setup lang="ts">

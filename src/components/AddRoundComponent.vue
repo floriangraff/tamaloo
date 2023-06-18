@@ -1,10 +1,8 @@
 <template>
   <div class="round">
-    <div class="caption-block">
-      Add Round
-    </div>
+    <div class="caption-block"></div>
     <div v-for="roundScore in roundScores" class="score-block">
-      <input v-model="roundScore.score" class="score-input" v-on:keyup.enter="addRound" type="number">
+      <input v-model="roundScore.score" class="score-input" placeholder="0" v-on:keyup.enter="addRound" type="number">
     </div>
   </div>
 </template>
@@ -22,10 +20,9 @@ const emit = defineEmits<{
 }>()
 
 function newRoundScores() {
-  let roundId = Math.floor(Math.random() * 100);
   let roundScores: Array<RoundScore> = [];
   for (let player of props.players) {
-    roundScores.push(new RoundScore(roundId, player));
+    roundScores.push(new RoundScore(nextRoundId, player));
   }
   return roundScores;
 }
@@ -41,15 +38,14 @@ let roundScores: Ref<Array<RoundScore>> = ref(newRoundScores());
 let nextRoundId = 1;
 
 function addRound() {
-  // console.log("add round", props.players)
-  // let roundScores: Array<RoundScore> = [];
-  // for (let player of props.players) {
-  //   player.addRoundScore(10);
-  //   roundScores.push(new RoundScore(roundId, player));
-  //   console.log(player.name)
-  // }
+  for (let roundScore of roundScores.value) {
+    if (Number.isNaN(roundScore.score) || roundScore.score == undefined) {
+      roundScore.score = 0;
+    }
+    console.log(roundScore.score);
+    roundScore.player.addRoundScore(roundScore.score);
+  }
   let round = new Round(nextRoundId, roundScores.value);
-  console.log("add round: ", round)
   emit("addRound", round)
   nextRoundId += 1;
   roundScores.value = newRoundScores();
@@ -58,7 +54,6 @@ function addRound() {
 
 <style scoped>
 .round {
-  border-bottom: 1px solid var(--primary-color);
   display: flex;
 }
 

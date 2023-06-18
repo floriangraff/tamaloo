@@ -1,5 +1,5 @@
 <template>
-  <div class="score-block">
+  <div class="score-block flex-horizontal-center">
     {{player.score}}
   </div>
 </template>
