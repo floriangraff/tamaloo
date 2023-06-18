@@ -4,7 +4,7 @@ class Player {
     }
     id: number;
     name: String;
-    private _totalScore: number;
+    _totalScore: number;
     roundScores: Array<number>;
 
     public addRoundScore(score: number) {

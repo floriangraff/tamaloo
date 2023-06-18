@@ -5,7 +5,7 @@ class RoundScore {
         return this._player;
     }
     score: number;
-    private _player: Player;
+    _player: Player;
 
     constructor(round: number, player: Player) {
         this._player = player;

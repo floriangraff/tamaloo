@@ -24,7 +24,7 @@ function addPlayer(player: Player): any {
 
 function addRound(newRound: Round) {
   rounds.value.push(newRound);
-  playerNamesComponent.value.updateScores(players.value);
+  // playerNamesComponent.value.updateScores(players.value);
 }
 
 </script>
