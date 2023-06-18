@@ -9,14 +9,14 @@ import RoundComponent from "@/components/RoundComponent.vue";
 import PlayerNamesComponent from "@/components/PlayerNamesComponent.vue";
 import AddPlayerComponent from "@/components/AddPlayerComponent.vue";
 import {ref} from "vue";
+import {type Ref} from "vue";
 
-const test = ref(["p1","p2"]);
 class Player {
   get totalScore(): number {
   return this.roundScores.reduce((sum, current) => sum + current, 0);
   }
   id: number;
-  name: string;
+  name: String;
   private _totalScore: number;
   roundScores: Array<number>;
 
@@ -24,7 +24,7 @@ class Player {
     this.roundScores.push(score);
   }
 
-  constructor(id: number, name: string) {
+  constructor(id: number, name: String) {
     this.id = id;
     this.name = name;
     this._totalScore = 0;
@@ -52,11 +52,11 @@ class Round {
   playerScores: Array<RoundScore>;
 }
 
-let players: Array<Player> = ref([]);
+let players: Ref<Array<Player>> = ref([]);
 let rounds: Array<Round> = [];
 rounds.push(new Round(0, []))
 
-function addPlayer(name: string) {
+function addPlayer(name: String): any {
   let id = Math.floor(Math.random() * 100);
   players.value.push(new Player(id, name))
   console.log(name)

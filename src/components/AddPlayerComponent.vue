@@ -6,11 +6,12 @@
 
 <script setup lang="ts">
 import {ref} from "vue";
+import {type Ref} from "vue";
 const emit = defineEmits<{
   (e: 'addPlayer', name: String): void
 }>()
 const playerName = ref("")
-const input = ref(null)
+const input: Ref<any> = ref(null)
 function handleAddPlayer() {
   if (playerName.value === "") {
     return
@@ -18,7 +19,9 @@ function handleAddPlayer() {
   console.log("adding player", playerName);
   emit("addPlayer", playerName.value)
   playerName.value = ""
-  input.value.focus()
+  if (input.value) {
+    input.value.focus();
+  }
 
 }
 </script>
